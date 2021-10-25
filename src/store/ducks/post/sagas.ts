@@ -22,6 +22,7 @@ import { PostTypes, Post } from './types';
 interface PostProps {
   payload: {
     id?: number;
+    offset?: number;
     title: string;
     content: string;
   };
@@ -57,7 +58,7 @@ export function* postSuccess({ response }) {
     };
     return post;
   });
-  yield put(getPostSuccess(posts));
+  yield put(getPostSuccess({ post: posts }));
 }
 
 // Create Post

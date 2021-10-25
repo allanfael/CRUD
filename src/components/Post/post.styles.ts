@@ -7,7 +7,7 @@ export const Container = styled.TouchableOpacity.attrs({
   width: 100%;
   border-radius: 8px;
   padding: 20px;
-  border: 1px solid ${({ theme }) => theme.accentColor};
+  border: 1px solid ${({ theme }) => theme.primaryColor};
 `;
 
 export const RowWrapper = styled.View`

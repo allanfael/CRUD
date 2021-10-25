@@ -1,7 +1,5 @@
 import axios from 'axios';
 
-import { store } from '@store';
-
 const baseApi = axios.create({
   baseURL: 'https://dev.codeleap.co.uk/careers/',
   timeout: 10000,

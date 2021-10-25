@@ -5,8 +5,10 @@ import { Post, PostTypes } from './types';
 // Get Posts
 export const getPostRequest = () => action(PostTypes.GET_POST_REQUEST);
 
-export const getPostSuccess = (post: Post) =>
+export const getPostSuccess = ({ post }) =>
   action(PostTypes.GET_POST_SUCCESS, { post });
+
+export const getMorePost = () => action(PostTypes.GET_POST_SUCCESS);
 
 export const getPostFailure = () => action(PostTypes.GET_POST_FAILURE);
 

@@ -12,7 +12,7 @@ import { Container, HeaderButton } from './updatePost.styles';
 import color from '@themes/colors';
 
 // Components
-import { Input, Button, Typography, Background } from '@components';
+import { Input, Button, Typography, Background, Loading } from '@components';
 
 // Actions
 import { updatePostRequest } from '@store/ducks/post/actions';
@@ -29,8 +29,11 @@ interface FormData {
 }
 
 const NewPost = ({ navigation }) => {
+  const dispatch = useDispatch();
   const { params } = useRoute();
   const post = params?.post;
+
+  const { loading } = useSelector((state: RootState) => state.post);
 
   React.useLayoutEffect(() => {
     navigation.setOptions({
@@ -39,11 +42,20 @@ const NewPost = ({ navigation }) => {
           <AntDesign name='arrowleft' size={28} color={color.primaryColor} />
         </HeaderButton>
       ),
+      headerRight: () => (
+        <HeaderButton onPress={handleSubmit(onSubmit)}>
+          {loading ? (
+            <Loading />
+          ) : (
+            <Typography variant='H6Headline'>Save</Typography>
+          )}
+        </HeaderButton>
+      ),
       headerTitle: () => (
         <Typography variant='H5HeadlineQuicksand'>Post Update</Typography>
       ),
     });
-  }, [navigation]);
+  }, [navigation, loading]);
 
   useEffect(() => {
     if (post) {
@@ -54,10 +66,6 @@ const NewPost = ({ navigation }) => {
       });
     }
   }, []);
-
-  const dispatch = useDispatch();
-
-  const { loading } = useSelector((state: RootState) => state.post);
 
   const createNewPostSchema = yup.object().shape({
     title: yup.string().required('Campo obrigatório'),
@@ -113,19 +121,12 @@ const NewPost = ({ navigation }) => {
               label='Content'
               multiline
               placeholder='Insert the content'
-              returnKeyType='done'
+              returnKeyType='next'
               value={value}
               onChangeText={(text) => onChange(text)}
-              error={errors?.title?.message}
+              error={errors?.content?.message}
             />
           )}
-        />
-
-        <Button
-          title='Update'
-          style={{ position: 'absolute', marginTop: proportion(76) }}
-          onPress={handleSubmit(onSubmit)}
-          loading={loading}
         />
       </Container>
     </Background>

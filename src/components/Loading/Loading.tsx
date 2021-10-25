@@ -4,7 +4,7 @@ import { ViewStyle } from 'react-native';
 import { Loading as Load } from './loading.styles';
 
 interface LoadingProps {
-  style: ViewStyle;
+  style?: ViewStyle;
 }
 
 const Loading = (props: LoadingProps) => {

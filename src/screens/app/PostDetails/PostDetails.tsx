@@ -4,7 +4,7 @@ import { AntDesign } from '@expo/vector-icons';
 import { useDispatch, useSelector } from 'react-redux';
 
 // Components
-import { Typography, Button } from '@components';
+import { Typography, Button, Background } from '@components';
 
 // Colors
 import color from '@themes/colors';
@@ -53,40 +53,43 @@ const PostDetails = ({ navigation }) => {
   };
 
   return (
-    <Container>
-      <Typography variant='H5HeadlineQuicksand'>{post.title}</Typography>
+    <Background>
+      <Container>
+        <Typography variant='H5HeadlineQuicksand'>{post.title}</Typography>
 
-      <Typography style={{ marginTop: proportion(2) }} variant='S1Paragraph'>
-        {post.content}
-      </Typography>
-
-      <RowWrapper>
-        <Typography
-          style={{ marginTop: proportion(2), marginRight: 6 }}
-          variant='S1Paragraph'
-        >
-          Auth:
+        <Typography style={{ marginTop: proportion(2) }} variant='S1Paragraph'>
+          {post.content}
         </Typography>
-        <Typography
-          color='secondaryColor'
-          style={{ marginTop: proportion(2) }}
-          variant='S1Paragraph'
-        >
-          {post.username}
-        </Typography>
-      </RowWrapper>
 
-      <Button
-        title='Delete'
-        style={{
-          position: 'absolute',
-          backgroundColor: color.danger,
-          marginTop: proportion(76),
-        }}
-        onPress={() => handleSubmit()}
-        loading={loading}
-      />
-    </Container>
+        <RowWrapper>
+          <Typography
+            style={{ marginTop: proportion(2), marginRight: 6 }}
+            variant='S1Paragraph'
+          >
+            Auth:
+          </Typography>
+          <Typography
+            color='secondaryColor'
+            style={{ marginTop: proportion(2) }}
+            variant='S1Paragraph'
+          >
+            {post.username}
+          </Typography>
+        </RowWrapper>
+
+        <Button
+          title='Delete'
+          style={{
+            position: 'absolute',
+            backgroundColor: color.danger,
+            marginTop: proportion(76),
+            alignSelf: 'center',
+          }}
+          onPress={() => handleSubmit()}
+          loading={loading}
+        />
+      </Container>
+    </Background>
   );
 };
 
