@@ -35,8 +35,14 @@ const NewPost = ({ navigation }) => {
   const { loading } = useSelector((state: RootState) => state.post);
 
   const createNewPostSchema = yup.object().shape({
-    title: yup.string().required('Campo obrigatório'),
-    content: yup.string().required('Campo obrigatório'),
+    title: yup
+      .string()
+      .required('Required field')
+      .max(40, 'Max. 100 characters'),
+    content: yup
+      .string()
+      .required('Required field')
+      .max(40, 'Max. 500 characters'),
   });
 
   const {
@@ -83,7 +89,7 @@ const NewPost = ({ navigation }) => {
               returnKeyType='done'
               value={value}
               onChangeText={(text) => onChange(text)}
-              error={errors?.title?.message}
+              error={errors?.content?.message}
             />
           )}
         />

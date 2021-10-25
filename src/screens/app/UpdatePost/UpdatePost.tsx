@@ -123,7 +123,7 @@ const NewPost = ({ navigation }) => {
 
         <Button
           title='Update'
-          style={{ marginTop: proportion(56) }}
+          style={{ position: 'absolute', marginTop: proportion(76) }}
           onPress={handleSubmit(onSubmit)}
           loading={loading}
         />
