@@ -1,6 +1,137 @@
 {
   "extends": "expo/tsconfig.base",
+  "exclude": [
+    "node_modules",
+    "babel.config.js",
+    "metro.config.js",
+    "jest.config.ts"
+  ],
   "compilerOptions": {
-    "strict": true
+    "target": "esnext",
+    "module": "es2015",
+    "lib": [
+      "esnext"
+    ],
+    "skipLibCheck": true,
+    "allowJs": false,
+    "sourceMap": true,
+    "noEmit": true,
+    "isolatedModules": true,
+    "strict": true,
+    "noImplicitAny": false,
+    "noImplicitThis": true,
+    "noUnusedLocals": true,
+    "noImplicitReturns": true,
+    "moduleResolution": "node",
+    "baseUrl": "./src",
+    "paths": {
+      "src/*": [
+        "./src/*"
+      ],
+      "@components/*": [
+        "./components/*"
+      ],
+      "@components": [
+        "./components"
+      ],
+      "@dto": [
+        "./dto"
+      ],
+      "@dto/*": [
+        "./dto/*"
+      ],
+      "@containers": [
+        "./containers"
+      ],
+      "@containers/*": [
+        "./containers/*"
+      ],
+      "@helpers/*": [
+        "./helpers/*"
+      ],
+      "@helpers": [
+        "./helpers"
+      ],
+      "@screens/*": [
+        "./screens/*"
+      ],
+      "@screens": [
+        "./screens"
+      ],
+      "@services/*": [
+        "./services/*"
+      ],
+      "@services": [
+        "./services"
+      ],
+      "@store/*": [
+        "./store/*"
+      ],
+      "@store": [
+        "./store"
+      ],
+      "@themes/*": [
+        "./themes/*"
+      ],
+      "@themes": [
+        "./themes"
+      ],
+      "@assets": [
+        "./assets"
+      ],
+      "@assets/*": [
+        "./assets/*"
+      ],
+      "@config": [
+        "./config"
+      ],
+      "@config/*": [
+        "./config/*"
+      ],
+      "@dataMock": [
+        "./mock"
+      ],
+      "@dataMock/*": [
+        "./mock/*"
+      ],
+      "@interfaces": [
+        "./interfaces"
+      ],
+      "@interfaces/*": [
+        "./interfaces/*"
+      ],
+      "@utils": [
+        "./utils"
+      ],
+      "@utils/*": [
+        "./utils/*"
+      ],
+      "@navigator": [
+        "./navigators"
+      ],
+      "@navigator/*": [
+        "./navigators/*"
+      ],
+      "@shimmers": [
+        "./shimmers"
+      ],
+      "@shimmers/*": [
+        "./shimmers/*"
+      ],
+      "@hooks": [
+        "./hooks"
+      ],
+      "@hooks/*": [
+        "./hooks/*"
+      ],
+      "@context":[
+        "./context"
+      ],
+      "@context/*":[
+        "./context/*"
+      ]
+    },
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true
   }
 }
