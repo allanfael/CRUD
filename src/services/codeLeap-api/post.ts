@@ -40,7 +40,7 @@ const post = {
     callBaseApi({
       title: 'Post - Update Post',
       method: 'PATCH',
-      endpoint: `${id}`,
+      endpoint: `${id}/`,
       data: {
         title,
         content,
@@ -50,7 +50,7 @@ const post = {
     callBaseApi({
       title: 'Post - Delete Post',
       method: 'DELETE',
-      endpoint: `${id}`,
+      endpoint: `${id}/`,
     }),
 };
 
